@@ -22,7 +22,6 @@ route::group(['namespace' => 'Admin' , 'middleware' => 'auth:admin' ], function(
 });
 
 
-
 route::group(['namespace' => 'Admin' , 'middleware' => 'guest:admin'], function(){
 
     route::get('login','loginCon@login')->name('admin.login');             //  1 اللينك اللي بيطلبة الادمن عشان يدخل لفورم التسجيل  
