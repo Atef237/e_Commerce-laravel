@@ -15,12 +15,10 @@ class setting extends Model
 
     protected $fillable = ['key','is_translatable','plain_value'];
 
-
     protected $casts = [
 
         'is_translatable' => 'boolean'
     ];
-
 
     public static function setMany($settings){
         foreach($settings as $key => $value){
