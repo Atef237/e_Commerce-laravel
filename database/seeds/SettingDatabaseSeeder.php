@@ -24,10 +24,10 @@ class SettingDatabaseSeeder extends Seeder
             'outer_shipping_cust' => 0,
             'free_sipping_cost' => 0,
             'translatable' => [
-                'story_name' => 'ATEF',
-                'free_shipping_label' => 'Free shipping',
-                'local_lable' => 'local shipping',
-                'outer_lable' => 'outer shipping',
+                'story_name' => 'صوار',
+                'free_shipping_label' => 'توصيل مجاني',
+                'local_lable' => 'توصيل داخلي',
+                'outer_lable' => 'توصيل خارجي',
             ],
         ]);
     }

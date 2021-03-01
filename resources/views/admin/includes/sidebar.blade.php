@@ -100,9 +100,9 @@
 
 
               <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
-                                                                                    data-i18n="nav.templates.main">الاعدادات</span></a>
+                                                                                    data-i18n="nav.templates.main">{{__('admin/sidebar.settings')}}</span></a>
                      <ul class="menu-content">
-                     <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">وسائل التوصيل</a>
+                     <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">{{__('admin/sidebar.sipping mathods')}}</a>
                             <ul class="menu-content">
                             <li><a class="menu-item" href="../vertical-menu-template"
                                    data-i18n="nav.templates.vert.classic_menu">توصيل مجاني</a>
