@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminLogin extends FormRequest
+class shippingReq extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +24,18 @@ class AdminLogin extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
-            'password' => 'required'
+            'id' => 'required|exists:settings',
+            'value' => 'required',
+            'plain_value' => 'nullable|numeric'
         ];
     }
-
+    
     public function messages()
     {
         return [
-            'email.required'     => 'يجب ادخال البريد الالكتروني',
-            'email.email'        => 'صيغه البريد الالكتروني غير صحيحه',
-            'password.required'  => 'يجب ادخال كلمة المرور'
+            'id.required'              => 'id مطلوب',
+            'id.exists:settings'       => 'id غير متاح',
+            'plain_value.numeric'      => 'يجب ان تكون القيمة رقمية'
         ];
     }
 }

@@ -25,7 +25,11 @@ Route::group(
 
         route::get('/','dashboardCon@index')->name('admin.dashboard');  //3 لينك عرض لوحه التحكم
 
-        
+        route::group(['prefix' => 'settings'], function(){
+            route::get('shipping-methods-{type}','settingsCon@editShippingMethods')->name('edit.shippings.methods');
+            route::put('shipping-methods/{id}','settingsCon@updateShippingMethods')->name('update.shippings.methods');
+
+        });
 
     });
 
