@@ -23,11 +23,23 @@ Route::group(
 
     route::group(['namespace' => 'Admin' , 'middleware' => 'auth:admin', 'prefix' => 'admin' ], function(){
 
+        route::get('logout','loginCon@logout')->name('admin.logout');
+
         route::get('/','dashboardCon@index')->name('admin.dashboard');  //3 لينك عرض لوحه التحكم
 
         route::group(['prefix' => 'settings'], function(){
+
             route::get('shipping-methods-{type}','settingsCon@editShippingMethods')->name('edit.shippings.methods');
+
             route::put('shipping-methods/{id}','settingsCon@updateShippingMethods')->name('update.shippings.methods');
+
+        });
+
+        route::group(['prefix' => 'profile'] , function(){
+
+            route::get('edit' , 'profileCon@showprofile')->name('show.profile');
+
+            route::put('update' , 'profileCon@updateprofile')->name('update.profile');
 
         });
 

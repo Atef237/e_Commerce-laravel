@@ -28,4 +28,20 @@ class loginCon extends Controller
         }
         return redirect()->back()->with(['error' => 'هناك خطأ بالبيانات']);
     }
+
+    public function logout(){
+
+        $gaurd = $this->getGaurd();
+
+        $gaurd -> logout();
+
+        return redirect()->route('admin.login');
+
+    }
+
+    public function getGaurd(){
+
+        return auth('admin');
+
+    }
 }
