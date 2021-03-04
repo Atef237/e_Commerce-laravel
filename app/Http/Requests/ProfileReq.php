@@ -25,7 +25,8 @@ class ProfileReq extends FormRequest
     {
         return [
             'name'  => 'required',
-            'email' => 'required|email|unique:admin,email , '.$this -> id,
+            'email' => 'required|email|unique:admins,email, '.$this -> id,
+            'password' => 'nullable|min:8|confirmed',
         ];
     }
 
@@ -33,10 +34,12 @@ class ProfileReq extends FormRequest
     {
         return [
 
-            'name.required'  => 'يجب ادخال الاسم',
-            'email.required' => 'يجب ادخال البريد الالكتروني',
-            'email.email'    => 'تاكد من قيمة البريد الالكتروني',
-            'email.unique'   => 'هذا البريد موجود من قبل'
+            'name.required'         => 'يجب ادخال الاسم',
+            'email.required'        => 'يجب ادخال البريد الالكتروني',
+            'email.email'           => 'تاكد من قيمة البريد الالكتروني',
+            'email.unique'          => 'هذا البريد موجود من قبل',
+            'password.min'          => 'يجب الا تقل عن 8 حروف',
+            'password.confirmed'    =>'كلمة المرور غير مطابقة',
 
         ];
     }

@@ -25,9 +25,14 @@ class profileCon extends Controller
 
             $admin = Admin::find(auth('admin')->user()->id);
 
-            $admin -> update($request);
+            if($request->filled('password')){
+                $request->merge(['password' => bcrypt($request->password)]);
+            }
+            unset($request['id']);
+            unset($request['password-confirmation']);
 
-            
+            $admin -> update($request->all());
+
             return redirect()->back()->with(['success' => 'تم التحديث ']);
 
         }catch (\Exception $exc){

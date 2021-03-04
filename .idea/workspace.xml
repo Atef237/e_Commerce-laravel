@@ -4,6 +4,10 @@
     <list default="true" id="a324ab73-259b-4f88-ad7e-67ee9dc78642" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/profileCon.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/profileCon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ProfileReq.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ProfileReq.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/profile/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/profile/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +173,8 @@
       <updated>1614798307732</updated>
       <workItem from="1614798333482" duration="642000" />
       <workItem from="1614799874371" duration="827000" />
-      <workItem from="1614808435780" duration="7610000" />
+      <workItem from="1614808435780" duration="8236000" />
+      <workItem from="1614871613662" duration="10353000" />
     </task>
     <servers />
   </component>

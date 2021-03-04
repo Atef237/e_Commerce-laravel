@@ -68,7 +68,6 @@
                                                         </div>
                                                     </div>
 
-
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> البريد الالكتروني </label>
@@ -79,6 +78,30 @@
                                                                     @error("email")
                                                                         <span class="text-danger">{{$message}}</span>
                                                                     @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> كلمة المرور الجديدة </label>
+                                                            <input type="password" value="" id=""
+                                                                   class="form-control"
+                                                                   placeholder="  كلمة المرور الجديدة"
+                                                                   name="password">
+                                                            @error("password")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">تاكيد كلمة المرور الجديدة </label>
+                                                            <input type="password" value="" id=""
+                                                                   class="form-control"
+                                                                   placeholder=" تاكيد كلمة المرور الجديدة  "
+                                                                   name="password-confirmation">
+
                                                         </div>
                                                     </div>
                                                 </div>
