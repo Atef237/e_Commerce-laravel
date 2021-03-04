@@ -27,6 +27,7 @@ class profileCon extends Controller
 
             $admin -> update($request);
 
+            
             return redirect()->back()->with(['success' => 'تم التحديث ']);
 
         }catch (\Exception $exc){
