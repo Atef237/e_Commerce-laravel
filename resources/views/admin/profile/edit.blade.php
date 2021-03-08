@@ -82,7 +82,7 @@
                                                     </div>
 
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
+
                                                             <label for="projectinput1"> كلمة المرور الجديدة </label>
                                                             <input type="password" value="" id=""
                                                                    class="form-control"
@@ -91,7 +91,7 @@
                                                             @error("password")
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
-                                                        </div>
+
                                                     </div>
 
                                                     <div class="col-md-6">
@@ -100,20 +100,18 @@
                                                             <input type="password" value="" id=""
                                                                    class="form-control"
                                                                    placeholder=" تاكيد كلمة المرور الجديدة  "
-                                                                   name="password-confirmation">
-
+                                                                   name="password_confirmation">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
 
                                             <!-- <div id="map" style="height: 500px;width: 1000px;"></div> -->
 
                                             <div class="form-actions">
 
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> حفظ
+                                                    <i class="la la-check-square-o"></i> تحديث
                                                 </button>
                                             </div>
                                         </form>

@@ -43,6 +43,19 @@ Route::group(
 
         });
 
+        ////////////////////////////////////// begin categories routes ////////////////////////////////////
+
+        route::group(['prefix' => 'main_categories'],function(){
+           route::get('/','MainCategoriesCon@index')->name('main_categories');
+           route::get('create','MainCategoriesCon@create')->name('main_categories.create');
+           route::post('store','MainCategoriesCon@store')->name('main_categories.store');
+           route::get('edit/{id}','MainCategoriesCon@edit')->name('main_categories.edit');
+           route::post('update/{id}','MainCategoriesCon@update')->name('main_categories.update');
+           route::get('delete/{id}','MainCategoriesCon@destroy')->name('main_categories.delete');
+        });
+
+        ////////////////////////////////////////// end categories routes ////////////////////////////////////
+
     });
 
 

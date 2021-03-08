@@ -20,7 +20,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/'.getFolder().'/plugins/animate/animate.css')}}">
     <!-- BEGIN VENDOR CSS-->
-    
+
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/'.getFolder().'/vendors.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/vendors/css/weather-icons/climacons.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/fonts/meteocons/style.css')}}">
@@ -53,7 +53,7 @@
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/'.getFolder().'/style-rtl.css')}}">
     <!-- END Custom CSS-->
-    @notify_css
+    <!-- @notify_css -->
     @yield('style')
     <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
     <style>
@@ -73,8 +73,8 @@
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 @include('admin.includes.footer')
 
-@notify_js
-@notify_render
+<!--@notify_js -->
+<!-- @notify_render -->
 
 <!-- BEGIN VENDOR JS-->
 <script src="{{asset('assets/admin/vendors/js/vendors.min.js')}}" type="text/javascript"></script>
