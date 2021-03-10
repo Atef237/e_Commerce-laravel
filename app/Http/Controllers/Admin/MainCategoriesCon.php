@@ -74,13 +74,18 @@ class MainCategoriesCon extends Controller
     }
 
     public function create(){
+
+        //return response()->json([$categories]);
+
         return view('admin.categories.create');
     }
 
     public function store(MainCategoryReq $request){
+
+        //return $request;
         try {
 
-            DB::beginTransaction();
+           // DB::beginTransaction();
                 if (!$request->has('is_active'))
                     $request->request->add(['is_active' => 0]);
                 else
@@ -89,17 +94,17 @@ class MainCategoriesCon extends Controller
                 $category = Category::create($request -> except('_token'));
 
                 $category -> name = $request->name;
-                    //return $request;
                 $category->save();
 
                return redirect()->route('main_categories')->with(['success'=>'تم الاضافة بنجاح']);
-            DB::commit();
+            //DB::commit();
 
-        }catch (\Exception $exc){
+        }
+        catch (\Exception $exc){
 
-            DB::rollBack();
+           // DB::rollBack();
             return redirect()->route('main_categories')->with(['error'=>'حدث خطأ ما حاول في وقت لاحق']);
-
+                //return $exc;
         }
     }
 }

@@ -27,7 +27,15 @@ class Category extends Model
         return $query -> where('parent_id',null);
     }
 
+    public function scopeChiled($query){
+        return $query -> whereNotNull('parent_id',null);
+    }
+
     public function getActive(){
        return $this-> is_active == 0 ? 'غير مفعل' : 'مفعل' ;
+    }
+
+    public function parent_cat(){
+        return $this -> belongsTo(self::class,'parent_id');
     }
 }

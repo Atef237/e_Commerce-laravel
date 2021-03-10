@@ -27,7 +27,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> اضافة قسم رئيسي </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> اضافة قسم فرعي </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -44,7 +44,7 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                              action="{{route('main_categories.store')}}"
+                                              action="{{route('sub_categories.store')}}"
                                               method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
@@ -73,6 +73,25 @@
                                             <div class="form-body">
 
                                                 <h4 class="form-section"><i class="ft-home"></i> بيانات القسم </h4>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2">  اختر القسم الرئيسي</label>
+                                                            <select name="parent_id" class="elect2 form-control">
+                                                                <optgroup label="من فضلك اختر القسم">
+                                                                    @if($categories && $categories -> count() > 0)
+                                                                        @foreach( $categories as $category )
+                                                                            <option value="{{$category -> id}}" >{{$category -> name}}</option>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </optgroup>
+                                                            </select>
+                                                            @error('parent_id')
+                                                                <span class="text-danger"> {{$message}} </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">

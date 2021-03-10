@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MainCategoryReq extends FormRequest
+class subCategoryReq extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class MainCategoryReq extends FormRequest
         return [
             'name' => 'required',
             'slug'=> 'required|unique:categories,slug,' . $this->id,
-
+            'parent_id' => 'required|exists:categories,id'
         ];
     }
 
@@ -35,7 +35,9 @@ class MainCategoryReq extends FormRequest
         return [
             'name.required' => 'هذا الحقل مطلوب',
             'slug.required' => 'هذا الحقل مطلوب',
-            'slug.unique' => 'هذا الاسم محجوز بالفعل'
+            'slug.unique' => 'هذا الاسم محجوز بالفعل',
+            'parent_id.required' => 'يجب اختيار القسم الرئيسي',
+            'parent_id.exists' => 'هذا القسم غير موجود'
         ];
     }
 }
