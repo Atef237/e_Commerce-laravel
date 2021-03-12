@@ -168,7 +168,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -202,6 +202,7 @@
       <workItem from="1615290763134" duration="31730000" />
       <workItem from="1615386335085" duration="22895000" />
       <workItem from="1615478065598" duration="16889000" />
+      <workItem from="1615512113359" duration="338000" />
     </task>
     <servers />
   </component>
