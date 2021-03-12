@@ -71,6 +71,21 @@ Route::group(
 
         ////////////////////////////////////////// end sub categories routes ////////////////////////////////////
 
+
+        ////////////////////////////////////// begin Brands routes ////////////////////////////////////
+
+        route::group(['prefix' => 'brands'],function(){
+            route::get('/','BrandsCon@index')->name('Brands');
+            route::get('create','BrandsCon@create')->name('Brand.create');
+            route::post('store','BrandsCon@store')->name('Brand.store');
+            route::get('edit/{id}','BrandsCon@edit')->name('Brand.edit');
+            route::post('update/{id}','BrandsCon@update')->name('Brand.update');
+            route::get('delete/{id}','BrandsCon@destroy')->name('Brand.delete');
+        });
+
+        ////////////////////////////////////////// end Brands routes ////////////////////////////////////
+
+
     });
 
 
