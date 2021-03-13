@@ -83,7 +83,33 @@ class BrandsCon extends Controller
 
     public function store(BrandReq $request){
 
-        return $request;
+        try {
+            DB::beginTransaction();
+
+            if(!$request->has('ii_active'))
+                $request->request->add(['is_active'=>0]);
+            else
+                $request->request->add(['is_active'=>1]);
+
+            if($request->has('photo')){
+                $fileName = saveImage($request->photo,'brands');
+            }
+            $brand = brand::created($request->except('_token','photo'));
+
+            $brand->name = $request->name;
+            $brand->photo = $fileName;
+            $brand->save();
+
+            return redirect()->route('Brands')->with(['success'=>'تم الاضافه بنجاح']);
+
+            DB::commit();
+        }catch (\Exception $ex){
+            DB::rollBack();
+            return redirect()->route('Brands')->with(['error'=>'حدث خطا ما']);
+
+        }
+
+        //return $request;
 
     }
 }

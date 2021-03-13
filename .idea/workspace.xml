@@ -2,24 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a324ab73-259b-4f88-ad7e-67ee9dc78642" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BrandsCon.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/BrandReq.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/brand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/brandTranslation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Traits/generalTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_10_142808_create_brands_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_10_143013_create_brand_translations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/KfcyYxqN4bCqEBi9tercb7hWzsU3BwPjgJx7vlIi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/ZQFHbFwsz5XiX88eawOS6rFyrIKILx24dDvHcAe7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/udpYEWhVJ0bWGdv4RKlOWRPhQpzWyl6GjxXNKcDq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/brands/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/brands/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/brands/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Helpers/generalHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/generalHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/includes/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BrandsCon.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BrandsCon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/generalTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/generalTrait.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +188,9 @@
       <workItem from="1615290763134" duration="31730000" />
       <workItem from="1615386335085" duration="22895000" />
       <workItem from="1615478065598" duration="16889000" />
-      <workItem from="1615512113359" duration="338000" />
+      <workItem from="1615512113359" duration="1046000" />
+      <workItem from="1615563864749" duration="250000" />
+      <workItem from="1615675999266" duration="3007000" />
     </task>
     <servers />
   </component>
