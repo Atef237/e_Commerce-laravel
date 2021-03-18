@@ -2,10 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a324ab73-259b-4f88-ad7e-67ee9dc78642" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/BrandRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/5VUJOiVb9zVtl8TDv9B1azkTvfYruK1YMljyGA7P.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/6QimbiliwolKUAF4iIsloGYLczcxOSR0lMfhJzPg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/AeYzCmebhOMecG95OL931bQPj9wy687u0kgxkI42.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/Ca0PeIhWyAXuZjjrI6fTAJZrP5zTtXqQ5vhHRu8p.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/FZpryw6RwxI1twvEYKfZLSNZ6qyzS49lZ2Wt0eDt.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/G7e8t6lAql5TFV8GYVfLLoFFb6NJW3PyWyVwWwYA.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/OumeqFuSgvsmR2c3UPMdQB220NOIQ1d9YhRlppaV.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/VpAc0TmE2zZKzr7x8QwA7V6nAijfb4deg4RwruX9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/YhbTLd41VExalxdSnuPvRtS3PHgUwiXacv6eGkcH.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/c9L974V3SbYVtlFdbjf7AWUAFSah5GILrHdfPD92.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/hUdD72GKlqJqAiYiVsLTyI2XbG7L6Sl81QN3B4vK.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/j8RXk8rQAESJwQcSadWVtd34uO3TapP7TD9Mrxsb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/onACqth3O5DoLsyqaAwv1NfJVz6j3Wr4UQEzKiQ5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/oxfSGQnkxrpxWlCC95pfuzA7XfPGcjgoUYHRJddV.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/pF4wsJ91urqhkA6VOYUk3guCyEu1E6JuFh2LXd9E.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/qFWhHQ8UktqAFaE8FY39eyKoZstmxN5MEz7dHs0Z.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/xhaRUVWjDKzrOn95jlwi1Rk8MHxU6FLxf3ZfIJ0f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/xwcoVxTViNc01W41980WncGw426M5GMuPbjIwE2d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/brands/yDhV2CGUINgpDoUg8s5kL6kYEtUwwGcyCxAjqojy.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Helpers/generalHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/generalHelper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BrandsCon.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BrandsCon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/generalTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/generalTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/BrandReq.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CategoryTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CategoryTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/brand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/brands/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/brands/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/brands/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/brands/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +166,9 @@
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
     </include_path>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
   <component name="ProjectId" id="1pG8vfoXM3hfUD98sAiwTvrKW2L" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -154,7 +182,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Api" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -190,7 +218,10 @@
       <workItem from="1615478065598" duration="16889000" />
       <workItem from="1615512113359" duration="1046000" />
       <workItem from="1615563864749" duration="250000" />
-      <workItem from="1615675999266" duration="3007000" />
+      <workItem from="1615675999266" duration="3218000" />
+      <workItem from="1615804298189" duration="8957000" />
+      <workItem from="1615815603993" duration="5584000" />
+      <workItem from="1616025186845" duration="5584000" />
     </task>
     <servers />
   </component>

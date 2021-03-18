@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\BrandReq;
-use App\Http\Requests\MainCategoryReq;
+use App\Http\Requests\BrandRequest;
 use App\Models\brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,54 +22,66 @@ class BrandsCon extends Controller
 
         $brand = brand::find($brand_id);
 
+        //return $brand;
+
         if(!$brand)
             return redirect()->route('Brands')->with(['error'=>'هذا القسم غير موجود']);
 
         return view('admin.brands.edit',compact('brand'));
     }
 
-    public function update($cat_id, MainCategoryReq $request){
+    public function update($brand_id, BrandRequest $request){
         // validation
 
+        if (!$request->has('brand.0.is_active'))
+            $request->request->add(['is_active' => 0]);
+        else
+            $request->request->add(['is_active' => 1]);
+
         try {
+            DB::beginTransaction();
+                $brand = brand::find($brand_id);
 
-            if (!$request->has('category.0.active'))
-                $request->request->add(['is_active' => 0]);
-            else
-                $request->request->add(['is_active' => 1]);
+                if(!$brand)
+                    return redirect()->route('Brands')->with(['error'=> 'هذا القسم غير موجود']);
 
+                $filName = saveImage($request->photo,'brands');
+                $brand -> update($request -> all());
+                $brand -> name = $request->name;
+                $brand->photo = $filName;
+                $brand->save();
+            DB::commit();
 
-            $category = Category::find($cat_id);
+            return redirect()->route('Brands')->with(['success'=>'تم التحديث بنجاح']);
 
-            if(!$category)
-                return redirect()->route('main_categories')->with(['error'=> 'هذا القسم غير موجود']);
-
-            $category -> update($request -> all());
-            $category -> name = $request->name;
-            $category->save();
-
-            return redirect()->route('main_categories')->with(['success'=>'تم التحديث بنجاح']);
         }catch (Exception $exc){
 
-            return redirect()->route('main_categories')->with(['error'=>'حدثت مشكلة ما حاول مرة اخري']);
+            DB::rollBack();
+            return redirect()->route('Brands')->with(['error'=>'حدثت مشكلة ما حاول مرة اخري']);
         }
 
     }
 
     public function destroy($id){
 
+       // $brand= brand::find($id);
+
+       // return $brand;
         try {
-            $category = Category::find($id);
+            $brand= brand::find($id);
 
-            if(!$category)
-                return redirect()->route('main_categories')->with(['error'=>'هذا القسم غير موجود']);
+            if(!$brand)
+                return redirect()->route('Brands')->with(['error'=>'هذا القسم غير موجود']);
 
-            $category -> delete();
+            //$file_path = app_path().'/images/brands/'.$brand->photo;
+            //unlink($file_path);
 
-            return redirect()->route('main_categories')->with(['success'=>'تم الحذف بنجاح']);
+            $brand -> delete();
+
+            return redirect()->route('Brands')->with(['success'=>'تم الحذف بنجاح']);
         }catch (Exception $exc){
 
-            return redirect()->route('main_categories')->with(['error'=>'حدثت مشكلة ما حاول مرة اخري']);
+            return redirect()->route('Brands')->with(['error'=>'حدثت مشكلة ما حاول مرة اخري']);
         }
     }
 
@@ -81,35 +92,37 @@ class BrandsCon extends Controller
         return view('admin.brands.create');
     }
 
-    public function store(BrandReq $request){
+    public function store(Request $request){
+        //return $request;
+
 
         try {
+
             DB::beginTransaction();
+                if(!$request->has('is_active'))
+                    $request->request->add(['is_active'=>0]);
+                else
+                    $request->request->add(['is_active'=>1]);
 
-            if(!$request->has('ii_active'))
-                $request->request->add(['is_active'=>0]);
-            else
-                $request->request->add(['is_active'=>1]);
+                if($request->has('photo')){
+                    $fileName = saveImage($request->photo,'brands');
+                }
+                $brand = brand::create($request->except('_token','photo'));
 
-            if($request->has('photo')){
-                $fileName = saveImage($request->photo,'brands');
-            }
-            $brand = brand::created($request->except('_token','photo'));
-
-            $brand->name = $request->name;
-            $brand->photo = $fileName;
-            $brand->save();
-
-            return redirect()->route('Brands')->with(['success'=>'تم الاضافه بنجاح']);
-
+                $brand->name = $request->name;
+                $brand->photo = $fileName;
+                $brand->save();
             DB::commit();
+
+                return redirect()->route('Brands')->with(['success'=>'تم الاضافه بنجاح']);
+
         }catch (\Exception $ex){
             DB::rollBack();
-            return redirect()->route('Brands')->with(['error'=>'حدث خطا ما']);
+            return redirect()->route('Brands')->with(['error'=>'حدث خطأ ما']);
 
         }
 
-        //return $request;
+
 
     }
 }

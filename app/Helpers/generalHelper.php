@@ -8,8 +8,9 @@ function getFolder(){
 }
 
  function saveImage($photo , $folder){
-    $image = $photo->getClientOriginalExtension();
-    $file_name =  $image->hashName();
+
+    $photo->store('/',$folder);
+    $file_name = $photo->hashName();
     return $file_name;
 }
 

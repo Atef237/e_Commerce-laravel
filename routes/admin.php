@@ -74,7 +74,7 @@ Route::group(
 
         ////////////////////////////////////// begin Brands routes ////////////////////////////////////
 
-        route::group(['prefix' => 'brands'],function(){
+        route::group(['prefix' => 'brand'],function(){
             route::get('/','BrandsCon@index')->name('Brands');
             route::get('create','BrandsCon@create')->name('Brand.create');
             route::post('store','BrandsCon@store')->name('Brand.store');

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BrandReq extends FormRequest
+class BrandRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,17 +25,9 @@ class BrandReq extends FormRequest
     {
         return [
             'name' => 'required|unique:brands.name',
-            'photo' => 'required|mimes:jpg,jpeg,png'
+            'photo'=> 'required_without:id',
         ];
+    }
 
-    }
-    public function messages()
-    {
-        return [
-            'name.required' => 'اسم الماركة مطلوب',
-            'name.unique' => ' هذه الماركة موجوده بالفعل',
-            'photo.required' => 'انت لم تختار صورة "الصورة مطلوبة"',
-            'photo.mimes' => 'هذه الصيغة ليست مدعومة'
-        ];
-    }
+
 }
