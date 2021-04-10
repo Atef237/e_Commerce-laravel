@@ -73,6 +73,7 @@
                                             <div class="form-body">
 
                                                 <h4 class="form-section"><i class="ft-home"></i> بيانات القسم </h4>
+
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -88,8 +89,6 @@
                                                         </div>
                                                     </div>
 
-
-
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1">الاسم بالاختصار </label>
@@ -104,7 +103,31 @@
                                                         </div>
                                                     </div>
 
+                                                </div>
 
+                                                <div class="row" id="type_category">
+                                                    <div class="col-md-6">
+                                                        <input type="radio" value="1" name="is_parent"  class="switchery" data-color="success" checked />
+                                                        <label>قسم رئيسي</label>
+
+                                                        <input type="radio" value="2" name="is_parent"  class="switchery" data-color="success"  />
+                                                        <label>قسم فرعي</label>
+                                                    </div>
+
+                                                    <div class="col-md-6 hidden" id="list">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">اختر القسم الرئيسي</label>
+                                                            <select name="parent_id">
+                                                                <optgroup label="الاقسام"  class="select2 form-group">
+                                                                    @if($selections && $selections -> count() > 0)
+                                                                        @foreach($selections as $select)
+                                                                            <option value="{{$select->id}}" >{{$select->name}}</option>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </optgroup>
+                                                            </select>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <div class="row cared">
@@ -123,9 +146,7 @@
                                                             <span class="text-danger"> </span>
                                                             @enderror
                                                         </div>
-
                                                     </div>
-
                                                 </div>
                                             </div>
 
@@ -152,5 +173,20 @@
         </div>
     </div>
 
+
+@endsection
+
+@section('script')
+
+    <script>
+        $('input:radio[name="is_parent"]').change(
+            function(){
+            if(this.checked && this.value == '2'){
+                $('#list').removeClass('hidden');
+            }else {
+                $('#list').addClass('hidden');
+            }
+        });
+    </script>
 
 @endsection

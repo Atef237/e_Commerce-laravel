@@ -91,7 +91,6 @@
                                                     </div>
 
 
-
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1">الاسم بالاختصار </label>
@@ -105,12 +104,34 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-
-
-
-
-
                                                 </div>
+
+
+                                                    <div class="row" id="type_category">
+                                                        <div class="col-md-6">
+                                                            <input type="radio" value="1" name="is_parent"  class="switchery" data-color="success" @if($category ->parent_id == null) checked @endif />
+                                                            <label>قسم رئيسي</label>
+
+                                                            <input type="radio" value="2" name="is_parent" @if($category ->parent_id != 0) checked @endif  class="switchery" data-color="success"  />
+                                                            <label>قسم فرعي</label>
+                                                        </div>
+
+                                                        <div @if($category ->parent_id == null){ class="col-md-6 hidden"}else{class="col-md-6"}  @endif id="list">
+                                                            <div class="form-group">
+                                                                <label for="projectinput1">اختر القسم الرئيسي</label>
+                                                                <select>
+                                                                    <optgroup label="الاقسام" name="parent_id" class="select2 form-group">
+                                                                        @if($selections && $selections -> count() > 0)
+                                                                            @foreach($selections as $select)
+                                                                                <option value="{{$select->id}}" @if($category -> parent_id == $select->id) checked @endif >{{$select->name}}</option>
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </optgroup>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group mt-1">
@@ -152,5 +173,21 @@
             </div>
         </div>
     </div>
+
+@endsection
+
+
+@section('script')
+
+    <script>
+        $('input:radio[name="is_parent"]').change(
+            function(){
+                if(this.checked && this.value == '2'){
+                    $('#list').removeClass('hidden');
+                }else {
+                    $('#list').addClass('hidden');
+                }
+            });
+    </script>
 
 @endsection

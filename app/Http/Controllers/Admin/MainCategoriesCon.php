@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Enumerations\categoryType;
 use App\Http\Requests\MainCategoryReq;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -14,18 +15,19 @@ class MainCategoriesCon extends Controller
 {
     public function index(){
 
-        $categories = Category::parent()->orderBy('id','DESC')->paginate(pagination_count);
+        $categories = Category::all();
         return view('admin.categories.index',compact('categories'));
     }
 
     public function edit($cat_id){
 
-         $category = Category::find($cat_id);
+          $category = Category::find($cat_id);
+         $selections = Category::select('id','parent_id')->get();
 
         if(!$category)
             return redirect()->route('main_categories')->with(['error'=>'هذا القسم غير موجود']);
 
-        return view('admin.categories.edit',compact('category'));
+        return view('admin.categories.edit',compact(['category','selections']));
     }
 
     public function update($cat_id, MainCategoryReq $request){
@@ -77,7 +79,8 @@ class MainCategoriesCon extends Controller
 
         //return response()->json([$categories]);
 
-        return view('admin.categories.create');
+        $selections = Category::select('id','parent_id')->get();
+        return view('admin.categories.create',compact('selections'));
     }
 
     public function store(MainCategoryReq $request){
@@ -91,9 +94,14 @@ class MainCategoriesCon extends Controller
                 else
                     $request->request->add(['is_active' => 1]);
 
-                $category = Category::create($request -> except('_token'));
+                if($request->is_active == categoryType::mainCategory)
+                    $request->request->add(['parint_id' => null]);
+
+
+            $category = Category::create($request -> except('_token'));
 
                 $category -> name = $request->name;
+                $category -> parent_id = $request->parent_id;
                 $category->save();
 
                return redirect()->route('main_categories')->with(['success'=>'تم الاضافة بنجاح']);
@@ -107,4 +115,5 @@ class MainCategoriesCon extends Controller
                 //return $exc;
         }
     }
+
 }
