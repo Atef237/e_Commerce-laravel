@@ -56,6 +56,36 @@ Route::group(
 
         ////////////////////////////////////////// end categories routes ////////////////////////////////////
 
+
+
+        ////////////////////////////////////// begin sub categories routes ////////////////////////////////////
+
+        route::group(['prefix' => 'sub_categories'],function(){
+            route::get('/','subCategoriesCon@index')->name('sub_categories');
+            route::get('create','subCategoriesCon@create')->name('sub_categories.create');
+            route::post('store','subCategoriesCon@store')->name('sub_categories.store');
+            route::get('edit/{id}','subCategoriesCon@edit')->name('sub_categories.edit');
+            route::post('update/{id}','subCategoriesCon@update')->name('sub_categories.update');
+            route::get('delete/{id}','subCategoriesCon@destroy')->name('sub_categories.delete');
+        });
+
+        ////////////////////////////////////////// end sub categories routes ////////////////////////////////////
+
+
+        ////////////////////////////////////// begin Brands routes ////////////////////////////////////
+
+        route::group(['prefix' => 'brand'],function(){
+            route::get('/','BrandsCon@index')->name('Brands');
+            route::get('create','BrandsCon@create')->name('Brand.create');
+            route::post('store','BrandsCon@store')->name('Brand.store');
+            route::get('edit/{id}','BrandsCon@edit')->name('Brand.edit');
+            route::post('update/{id}','BrandsCon@update')->name('Brand.update');
+            route::get('delete/{id}','BrandsCon@destroy')->name('Brand.delete');
+        });
+
+        ////////////////////////////////////////// end Brands routes ////////////////////////////////////
+
+
     });
 
 

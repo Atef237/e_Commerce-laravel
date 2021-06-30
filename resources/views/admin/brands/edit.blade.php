@@ -14,7 +14,7 @@
                                 </li>
                                 <li class="breadcrumb-item"><a href=""> الاقسام الرئيسية </a>
                                 </li>
-                                <li class="breadcrumb-item active"> تعديل - {{$category -> name}}
+                                <li class="breadcrumb-item active"> تعديل - {{$brand -> name}}
                                 </li>
                             </ol>
                         </div>
@@ -45,17 +45,17 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                              action="{{route('main_categories.update',$category -> id)}}"
+                                              action="{{route('Brand.update',$brand -> id)}}"
                                               method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
 
-                                            <input name="id" value="{{$category -> id}}" type="hidden">
+                                            <input name="id" value="{{$brand -> id}}" type="hidden">
 
                                             <div class="form-group">
                                                 <div class="text-center">
                                                     <img
-                                                        src="{{$category -> photo}}"
+                                                        src="{{$brand -> photo}}"
                                                         class="rounded-circle  height-150" alt="صورة القسم  ">
                                                 </div>
                                             </div>
@@ -82,7 +82,7 @@
                                                             <input type="text" id="name"
                                                                    class="form-control"
                                                                    placeholder="  "
-                                                                   value="{{$category -> name}}"
+                                                                   value="{{$brand -> name}}"
                                                                    name="name">
                                                             @error("name")
                                                                 <span class="text-danger">{{$message}}</span>
@@ -91,55 +91,15 @@
                                                     </div>
 
 
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1">الاسم بالاختصار </label>
-                                                            <input type="text" id="name"
-                                                                   class="form-control"
-                                                                   placeholder="  "
-                                                                   value="{{$category -> slug}}"
-                                                                   name="slug">
-                                                            @error("slug")
-                                                                <span class="text-danger"> {{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
                                                 </div>
-
-
-                                                    <div class="row" id="type_category">
-                                                        <div class="col-md-6">
-                                                            <input type="radio" value="1" name="is_parent"  class="switchery" data-color="success" @if($category ->parent_id == null) checked @endif />
-                                                            <label>قسم رئيسي</label>
-
-                                                            <input type="radio" value="2" name="is_parent" @if($category ->parent_id != 0) checked @endif  class="switchery" data-color="success"  />
-                                                            <label>قسم فرعي</label>
-                                                        </div>
-
-                                                        <div @if($category ->parent_id == null){ class="col-md-6 hidden"}else{class="col-md-6"}  @endif id="list">
-                                                            <div class="form-group">
-                                                                <label for="projectinput1">اختر القسم الرئيسي</label>
-                                                                <select>
-                                                                    <optgroup label="الاقسام" name="parent_id" class="select2 form-group">
-                                                                        @if($selections && $selections -> count() > 0)
-                                                                            @foreach($selections as $select)
-                                                                                <option value="{{$select->id}}" @if($category -> parent_id == $select->id) checked @endif >{{$select->name}}</option>
-                                                                            @endforeach
-                                                                        @endif
-                                                                    </optgroup>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group mt-1">
                                                             <input type="checkbox" value="1"
-                                                                   name="category[0][active]"
+                                                                   name="brand[0][is_active]"
                                                                    id="switcheryColor4"
                                                                    class="switchery" data-color="success"
-                                                                   @if($category -> is_active == 1)checked @endif/>
+                                                                   @if($brand -> is_active == 1)checked @endif/>
                                                             <label for="switcheryColor4"
                                                                    class="card-title ml-1">الحالة  </label>
 
@@ -173,21 +133,5 @@
             </div>
         </div>
     </div>
-
-@endsection
-
-
-@section('script')
-
-    <script>
-        $('input:radio[name="is_parent"]').change(
-            function(){
-                if(this.checked && this.value == '2'){
-                    $('#list').removeClass('hidden');
-                }else {
-                    $('#list').addClass('hidden');
-                }
-            });
-    </script>
 
 @endsection
