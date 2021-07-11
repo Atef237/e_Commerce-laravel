@@ -44,13 +44,14 @@ class repository implements repositoryInterface
         return $this->model;
     }
 
+
     //set the model
     public function setModel($model){
          $this->model = $model;
          return $this;
     }
 
-    //get database relationship 
+    //get database relationship
     public function with($relations){
         return $this->model->with($relations);
     }
