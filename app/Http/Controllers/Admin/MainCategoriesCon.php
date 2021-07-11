@@ -94,8 +94,8 @@ class MainCategoriesCon extends Controller
                 else
                     $request->request->add(['is_active' => 1]);
 
-//                if($request->is_parent == categoryType::mainCategory)
-//                        $request->parent_id = null;
+              if($request->is_parent == categoryType::mainCategory)
+                        $request->parent_id = null;
 
 
 
@@ -105,9 +105,8 @@ class MainCategoriesCon extends Controller
                 $category -> parent_id = $request->parent_id;
                 $category->save();
 
-               return redirect()->route('main_categories')->with(['success'=>'تم الاضافة بنجاح']);
             DB::commit();
-
+                return redirect()->route('main_categories')->with(['success'=>'تم الاضافة بنجاح']);
 
             DB::rollBack();
            return redirect()->route('main_categories')->with(['error'=>'حدث خطأ ما حاول في وقت لاحق']);

@@ -14,7 +14,7 @@ class CreateSettingTranslationsTable extends Migration
     public function up()
     {
         Schema::create('setting_translations', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('setting_id')->unsigned();
             $table->string('locale');
             $table->longText('value')->nullable();
@@ -22,6 +22,8 @@ class CreateSettingTranslationsTable extends Migration
             $table->unique(['setting_id','locale']);
             $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
             $table->timestamps();
+
+
         });
     }
 

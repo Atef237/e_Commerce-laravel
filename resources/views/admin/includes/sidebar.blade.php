@@ -70,33 +70,36 @@
 
 
               <li class="nav-item"><a href=""><i class="la la-male"></i>
-                     <span class="menu-title" data-i18n="nav.dash.main">الطلاب  </span>
+                     <span class="menu-title" data-i18n="nav.dash.main">العلامات  </span>
                      <span
                             class="badge badge badge-warning  badge-pill float-right mr-2"></span>
                      </a>
                      <ul class="menu-content">
-                     <li class="active"><a class="menu-item" href=""
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                     <li class="active"><a class="menu-item" href="{{route('tags')}}"
+                                          data-i18n="nav.dash.ecommerce"> عرض العلامات </a>
                      </li>
-                     <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            طالب </a>
+                     <li><a class="menu-item" href="{{route('tag.create')}}" data-i18n="nav.dash.crypto">أضافة
+                            علامة </a>
                      </li>
                      </ul>
               </li>
 
 
-              <li class="nav-item">
-                     <a href=""><i class="la la-male"></i>
-                     <span class="menu-title" data-i18n="nav.dash.main">تذاكر المراسلات   </span>
-                     <span
-                            class="badge badge badge-danger  badge-pill float-right mr-2">0</span>
-                     </a>
-                     <ul class="menu-content">
-                     <li class="active"><a class="menu-item" href=""
-                                          data-i18n="nav.dash.ecommerce"> تذاكر الطلاب </a>
-                     </li>
-                     </ul>
-              </li>
+                  <li class="nav-item"><a href=""><i class="la la-male"></i>
+                          <span class="menu-title" data-i18n="nav.dash.main"> المنتجات  </span>
+                          <span
+                              class="badge badge badge-warning  badge-pill float-right mr-2"></span>
+                      </a>
+                      <ul class="menu-content">
+                          <li class="active"><a class="menu-item" href="{{route('products')}}"
+                                                data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                          </li>
+                          <li><a class="menu-item" href="{{route('product.create')}}" data-i18n="nav.dash.crypto">أضافة
+                                  منتج </a>
+                          </li>
+                      </ul>
+                  </li>
+
 
 
               <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"

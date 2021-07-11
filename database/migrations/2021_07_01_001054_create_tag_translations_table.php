@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBrandTranslationsTable extends Migration
+class CreateTagTranslationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateBrandTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('brand_translations', function (Blueprint $table) {
+        Schema::create('tag_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('brand_id');
+            $table->integer('tag_id')->unsigned();
             $table->string('locale');
             $table->string('name');
-            $table->unique(['brand_id','locale']);
-            $table->timestamps();
+
+            $table->unique(['tag_id', 'locale']);
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
         });
     }
 
@@ -30,6 +31,6 @@ class CreateBrandTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('brand_translations');
+        Schema::dropIfExists('tag_translations');
     }
 }

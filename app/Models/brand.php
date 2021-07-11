@@ -25,4 +25,7 @@ class brand extends Model
         return($photo !== null) ? asset('assets/images/brands/'.$photo) : "";
     }
 
+    public function scopeActev($request){
+        return $this-> where('is_active',1);
+    }
 }

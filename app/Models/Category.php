@@ -38,4 +38,8 @@ class Category extends Model
     public function parent_cat(){
         return $this -> belongsTo(self::class,'parent_id');
     }
+
+    public function scopeActev($request){
+        return $this-> where('is_active',1);
+    }
 }

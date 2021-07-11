@@ -60,14 +60,14 @@ Route::group(
 
         ////////////////////////////////////// begin sub categories routes ////////////////////////////////////
 
-        route::group(['prefix' => 'sub_categories'],function(){
-            route::get('/','subCategoriesCon@index')->name('sub_categories');
-            route::get('create','subCategoriesCon@create')->name('sub_categories.create');
-            route::post('store','subCategoriesCon@store')->name('sub_categories.store');
-            route::get('edit/{id}','subCategoriesCon@edit')->name('sub_categories.edit');
-            route::post('update/{id}','subCategoriesCon@update')->name('sub_categories.update');
-            route::get('delete/{id}','subCategoriesCon@destroy')->name('sub_categories.delete');
-        });
+//        route::group(['prefix' => 'sub_categories'],function(){
+//            route::get('/','subCategoriesCon@index')->name('sub_categories');
+//            route::get('create','subCategoriesCon@create')->name('sub_categories.create');
+//            route::post('store','subCategoriesCon@store')->name('sub_categories.store');
+//            route::get('edit/{id}','subCategoriesCon@edit')->name('sub_categories.edit');
+//            route::post('update/{id}','subCategoriesCon@update')->name('sub_categories.update');
+//            route::get('delete/{id}','subCategoriesCon@destroy')->name('sub_categories.delete');
+//        });
 
         ////////////////////////////////////////// end sub categories routes ////////////////////////////////////
 
@@ -84,6 +84,39 @@ Route::group(
         });
 
         ////////////////////////////////////////// end Brands routes ////////////////////////////////////
+
+
+        ////////////////////////////////////////// begin tag route ///////////////////////////////////////
+
+            //route::resource('tag','tagController');
+
+        route::group(['prefix' => 'tag'],function(){
+            route::get('/','tagController@index')->name('tags');
+            route::get('create','tagController@create')->name('tag.create');
+            route::post('store','tagController@store')->name('tag.store');
+            route::get('edit/{id}','tagController@edit')->name('tag.edit');
+            route::post('update/{id}','tagController@update')->name('tag.update');
+            route::get('delete/{id}','tagController@destroy')->name('tag.delete');
+        });
+
+
+        ////////////////////////////////////////// end tag route ///////////////////////////////////////
+
+
+        /////////////////////////////////////////begin product /////////////////////////////////////////
+
+
+        route::group(['prefix' => 'product'],function(){
+            route::get('/','productController@index')->name('products');
+            route::get('create','productController@create')->name('product.create');
+            route::post('store','productController@store')->name('product.store');
+            route::get('edit/{id}','productController@edit')->name('product.edit');
+            route::post('update/{id}','productController@update')->name('product.update');
+            route::get('delete/{id}','productController@destroy')->name('product.delete');
+        });
+
+
+        /////////////////////////////////////////end product ///////////////////////////////////////////
 
 
     });
