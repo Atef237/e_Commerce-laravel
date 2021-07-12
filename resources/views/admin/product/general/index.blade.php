@@ -47,32 +47,35 @@
                                             class="table display nowrap table-striped table-bordered scroll-horizontal">
                                             <thead class="">
                                             <tr>
-                                                <th>الماركة </th>
+                                                <th>الاسم </th>
+                                                <th>الاسم بالرابط</th>
                                                 <th>الحالة</th>
-                                                <th>صوره الماركة</th>
+                                                <th>السعر</th>
                                                 <th>الإجراءات</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
-                                            @isset($brands)
-                                                @foreach($brands as $brand)
+                                            @isset($products)
+                                                @foreach($products as $product)
                                                     <tr>
-                                                        <td>{{$brand -> name}}</td>
-                                                        <td>{{$brand -> getActive()}}</td>
-                                                        <td> <img style="width: 150px; height: 100px;" src="{{$brand -> 	photo}}"></td>
+                                                        <td> {{$product -> name}} </td>
+                                                        <td> {{$product -> slug}} </td>
+                                                        <td> {{$product -> getActive()}} </td>
+                                                        <td> {{$product -> price}} </td>
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{route('Brand.edit',$brand->id)}}"
+                                                                <a href="#"
                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
 
-                                                                <a href="{{route('Brand.delete',$brand->id)}}"
+                                                                <a href="#"
                                                                    class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
 
                                                             </div>
                                                         </td>
+
                                                     </tr>
                                                 @endforeach
                                             @endisset
@@ -83,11 +86,15 @@
                                         <div class="justify-content-center d-flex">
 
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    {!! $products -> links() !!}
+
                 </section>
             </div>
         </div>

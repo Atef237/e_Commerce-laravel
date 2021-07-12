@@ -30,7 +30,8 @@ class generalProductRequest extends FormRequest
             'short_description' => 'nullable|max:500',
             'categories' => 'array|min:1',
             'categories.*' => 'numeric|exists:categories,id',
-            'brand_id'     => 'required|exists:brands,id'
+            'brand_id'     => 'required|exists:brands,id',
+             'tags' => 'nullable',
         ];
 
 

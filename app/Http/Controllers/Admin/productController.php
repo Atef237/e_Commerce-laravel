@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\generalProductRequest;
 use App\Models\brand;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\tag;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,8 @@ class productController extends Controller
 {
     public function index(){
 
+        $products = Product::select('id','slug','price','created_at')->paginate(pagination_count);
+        return view('admin.product.general.index',compact('products'));
     }
 
 
