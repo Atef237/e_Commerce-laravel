@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\generalProductRequest;
+use App\Http\Requests\ProductPriceValidation;
 use App\Models\brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\tag;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\assertContainsOnly;
+use function PHPUnit\Framework\returnArgument;
 
 class productController extends Controller
 {
@@ -45,5 +48,22 @@ class productController extends Controller
     public function update(){
 
     }
+
+    public function getPrice($id){
+
+        //$product = Product::where('id',$id)->get();
+
+        return view('admin.product.price.create')->with('id',$id);
+
+    }
+
+
+    public function storePrice(ProductPriceValidation $request){
+
+        Product::whereId($request->product_id)->update($request->only(['price','special_price','special_price_type','special_price_start','special_price_end']));
+
+        return redirect()->route('products')->with(['success'=>'تم التحديث بنجاح']);
+    }
+
 
 }

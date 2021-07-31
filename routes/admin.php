@@ -103,18 +103,18 @@ Route::group(
         ////////////////////////////////////////// end tag route ///////////////////////////////////////
 
 
-        /////////////////////////////////////////begin product /////////////////////////////////////////
+        /////////////////////////////////////////begin products /////////////////////////////////////////
 
 
         route::group(['prefix' => 'product'],function(){
             route::get('/','productController@index')->name('products');
+
             route::get('create','productController@create')->name('product.create');
             route::post('store','productController@store')->name('product.store');
 
-            route::get('price','productController@price')->name('product.price');
-            route::post('price','productController@storPrice')->name('product.price');
-            route::post('update/{id}','productController@update')->name('product.update');
-            route::get('delete/{id}','productController@destroy')->name('product.delete');
+            route::get('price/{id}','productController@getPrice')->name('product.getPrice');
+            route::post('price','productController@storePrice')->name('product.price.store');
+
         });
 
 
