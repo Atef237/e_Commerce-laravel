@@ -115,6 +115,9 @@ Route::group(
             route::get('price/{id}','productController@getPrice')->name('product.getPrice');
             route::post('price','productController@storePrice')->name('product.price.store');
 
+            route::get('inventory/{id}','productController@addInventory')->name('inventory');
+            route::post('add','productController@storeInventory')->name('storeInventory');
+
         });
 
 

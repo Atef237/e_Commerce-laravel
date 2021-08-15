@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\generalProductRequest;
+use App\Http\Requests\ProductInventoryRequest;
 use App\Http\Requests\ProductPriceValidation;
 use App\Models\brand;
 use App\Models\Category;
@@ -65,5 +66,15 @@ class productController extends Controller
         return redirect()->route('products')->with(['success'=>'تم التحديث بنجاح']);
     }
 
+
+    public function addInventory($id){
+        return view('admin.product.inventory.create')->with('id',$id);
+    }
+
+    public function storeInventory(ProductInventoryRequest $request){
+        //return $request;
+        Product::whereId($request -> product_id ) -> update($request -> except(['_token','product_id']));
+        return redirect()->route('products')->with(['success'=>'تم التحديث بنجاح']);
+    }
 
 }
