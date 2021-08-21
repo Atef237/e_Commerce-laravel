@@ -118,11 +118,26 @@ Route::group(
             route::get('inventory/{id}','productController@addInventory')->name('inventory');
             route::post('add','productController@storeInventory')->name('storeInventory');
 
-        });
 
+            route::get('image/{id}','productController@addImage')->name('addImage');
+            route::post('storeImage','productController@storeImage')->name('store.image');
+            route::post('save','productController@saveForm')->name('save');
+
+
+        });
 
         /////////////////////////////////////////end product ///////////////////////////////////////////
 
+
+
+        route::group(['prefix'=>'attribute'],function (){
+
+            route::get('/','AttributeController@index')->name('attribute');
+            route::get('create','AttributeController@create')->name('create.attribute');
+            route::post('store','AttributeController@store')->name('store.attribute');
+            route::get('destroy/{id}','AttributeController@destroy')->name('destroy.attribute');
+
+        });
 
     });
 

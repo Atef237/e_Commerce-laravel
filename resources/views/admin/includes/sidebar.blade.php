@@ -102,6 +102,24 @@
 
 
 
+
+                  <li class="nav-item"><a href=""><i class="la la-male"></i>
+                          <span class="menu-title" data-i18n="nav.dash.main"> الخصائص  </span>
+                          <span
+                              class="badge badge badge-warning  badge-pill float-right mr-2"></span>
+                      </a>
+                      <ul class="menu-content">
+                          <li class="active"><a class="menu-item" href="{{route('attribute')}}"
+                                                data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                          </li>
+                          <li><a class="menu-item" href="{{route('create.attribute')}}" data-i18n="nav.dash.crypto">أضافة
+                                  خاصية </a>
+                          </li>
+                      </ul>
+                  </li>
+
+
+
               <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
                                                                                     data-i18n="nav.templates.main">{{__('admin/sidebar.settings')}}</span></a>
                      <ul class="menu-content">

@@ -67,4 +67,8 @@ class Product extends Model
     }
 
 
+    public function photos(){
+        return $this->morphMany(photos::class,'photoable');
+    }
+
 }

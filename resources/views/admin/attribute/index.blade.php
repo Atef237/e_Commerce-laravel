@@ -25,7 +25,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">جميع الماركات الرئيسية </h4>
+                                    <h4 class="card-title">خصائص المنتج </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -48,35 +48,28 @@
                                             <thead class="">
                                             <tr>
                                                 <th>الاسم </th>
-                                                <th>الاسم بالرابط</th>
-                                                <th>الحالة</th>
-                                                <th>السعر</th>
                                                 <th>الإجراءات</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
-                                            @isset($products)
-                                                @foreach($products as $product)
+                                            @isset($attributes)
+                                                @foreach($attributes as $attribute)
                                                     <tr>
-                                                        <td> {{$product -> name}} </td>
-                                                        <td> {{$product -> slug}} </td>
-                                                        <td> {{$product -> getActive()}} </td>
-                                                        <td> {{$product -> price}} </td>
+                                                        <td>{{$attribute -> name}}</td>
+
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{route('product.getPrice',$product -> id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">السعر</a>
+                                                                <a href="#"
+                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
-                                                                <a href="{{route('addImage',$product -> id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">الصور</a>
 
-                                                                <a href="{{route('inventory',$product -> id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">المستودع</a>
+                                                                <a href="#"
+                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+
                                                             </div>
                                                         </td>
-
                                                     </tr>
                                                 @endforeach
                                             @endisset
@@ -87,15 +80,11 @@
                                         <div class="justify-content-center d-flex">
 
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    {!! $products -> links() !!}
-
                 </section>
             </div>
         </div>

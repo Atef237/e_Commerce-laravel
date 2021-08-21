@@ -23,6 +23,10 @@ class Category extends Model
         'is_active' => 'boolean'
     ];
 
+    public function photos(){
+        return $this->morphTo(photos::class,'photoable');
+    }
+
     public function scopeParent($query){
         return $query -> where('parent_id',null);
     }

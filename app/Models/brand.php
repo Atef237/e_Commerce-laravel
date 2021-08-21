@@ -17,6 +17,12 @@ class brand extends Model
 
     protected $translatedAttributes = ['name'];
 
+
+    public function photos(){
+        return $this->morphTo(photos::class,'photoable');
+    }
+
+
     public function getActive(){
         return $this-> is_active == 0 ? 'غير مفعل' : 'مفعل' ;
     }
