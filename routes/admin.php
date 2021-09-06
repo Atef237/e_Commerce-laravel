@@ -136,6 +136,8 @@ Route::group(
             route::get('create','AttributeController@create')->name('create.attribute');
             route::post('store','AttributeController@store')->name('store.attribute');
             route::get('destroy/{id}','AttributeController@destroy')->name('destroy.attribute');
+            route::get('edit/{id}','AttributeController@edit')->name('edit.attribute');
+            route::post('update/{id}','AttributeController@update')->name('update.attribute');
 
         });
 
