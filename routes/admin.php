@@ -27,6 +27,7 @@ Route::group(
 
         route::get('/','dashboardCon@index')->name('admin.dashboard');  //3 لينك عرض لوحه التحكم
 
+
         route::group(['prefix' => 'settings'], function(){
 
             route::get('shipping-methods-{type}','settingsCon@editShippingMethods')->name('edit.shippings.methods');
@@ -129,6 +130,7 @@ Route::group(
         /////////////////////////////////////////end product ///////////////////////////////////////////
 
 
+        /////////////////////////////////////////begin attribute /////////////////////////////////////////
 
         route::group(['prefix'=>'attribute'],function (){
 
@@ -140,6 +142,26 @@ Route::group(
             route::post('update/{id}','AttributeController@update')->name('update.attribute');
 
         });
+
+        /////////////////////////////////////////end attribute ///////////////////////////////////////////
+
+        /////////////////////////////////////////begin options /////////////////////////////////////////
+
+        route::group(['prefix'=>'option'],function (){
+
+            route::get('/','OptionController@index')->name('options');
+            route::get('create','OptionController@create')->name('create.options');
+            route::post('store','OptionController@store')->name('store.options');
+            route::get('edit/{id}','OptionController@edit')->name('edit.options');
+            route::post('update/{id}','OptionController@update')->name('update.options');
+            route::get('destroy/{id}','OptionController@destroy')->name('destroy.options');
+
+
+        });
+
+        /////////////////////////////////////////end options ///////////////////////////////////////////
+
+
 
     });
 

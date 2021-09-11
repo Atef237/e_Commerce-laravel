@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Option;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -70,5 +71,20 @@ class Product extends Model
     public function photos(){
         return $this->morphMany(photos::class,'photoable');
     }
+
+    public function options(){
+        return $this->hasMany(Option::class,'product_id');
+    }
+
+    public function scopeActive($query){
+
+        return $query->where('is_active',1);
+    }
+
+
+//
+//    public function scopeSelect($query){
+//        return $query->select('id','product_id','attribute_id','price');
+//    }
 
 }
