@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <nav data-depth="1" class="breadcrumb-bg">
         <div class="container no-index">
             <div class="breadcrumb">
@@ -28,9 +29,26 @@
                     </div>
                     <section id="content" class="page-content">
                         <section class="login-form">
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <section>
+                                    <div class="form-group row no-gutters">
+                                        <label class="col-md-2 form-control-label mb-xs-5 required">
+                                            Name :
+                                        </label>
+                                        <div class="col-md-6">
+
+                                            <input class="form-control" name="name" value="{{ old('name') }}"
+                                                   type="text" required="">
+                                            @error('name')
+                                            <span class="invalid-feedback text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-4 form-control-comment right">
+                                        </div>
+                                    </div>
                                     <div class="form-group row no-gutters">
                                         <label class="col-md-2 form-control-label mb-xs-5 required">
                                             Mobile :
@@ -40,7 +58,7 @@
                                             <input class="form-control" name="mobile" value="{{ old('mobile') }}"
                                                    type="text" required="">
                                             @error('mobile')
-                                            <span  class="invalid-feedback text-danger" role="alert">
+                                            <span class="invalid-feedback text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                             @enderror
@@ -56,19 +74,41 @@
 
                                             <div class="input-group js-parent-focus">
                                                 <input class="form-control js-child-focus js-visible-password"
-                                                       name="password" type="password" value="" pattern=".{5,}"
+                                                       name="password" type="password" value=""
                                                        required="">
                                                 <span class="input-group-btn">
-            <button class="btn" type="button" data-action="show-password" data-text-show="Show" data-text-hide="Hide">
-              Show
-            </button>
-          </span>
+                                    <button class="btn" type="button" data-action="show-password" data-text-show="Show"
+                                            data-text-hide="Hide">
+                                      Show
+                                    </button>
+                     </span>
                                             </div>
                                             @error('password')
                                             <span class="text-danger invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                             @enderror
+                                        </div>
+                                        <div class="col-md-4 form-control-comment right">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row no-gutters">
+                                        <label class="col-md-2 form-control-label mb-xs-5 required">
+                                            confirm Password :
+                                        </label>
+                                        <div class="col-md-6">
+                                            <div class="input-group js-parent-focus">
+                                                <input class="form-control js-child-focus js-visible-password"
+                                                       name="password_confirmation" type="password" value=""
+                                                       required="">
+                                                <span class="input-group-btn">
+                                    <button class="btn" type="button" data-action="show-password" data-text-show="Show"
+                                            data-text-hide="Hide">
+                                      Show
+                                    </button>
+                     </span>
+                                            </div>
+
                                         </div>
                                         <div class="col-md-4 form-control-comment right">
                                         </div>
@@ -89,7 +129,7 @@
                                             <input type="hidden" name="submitLogin" value="1">
                                             <button class="btn btn-primary" data-link-action="sign-in" type="submit"
                                                     class="form-control-submit">
-                                                Sign in
+                                                Sign up
                                             </button>
                                         </div>
                                     </div>
@@ -99,8 +139,8 @@
                         <div class="row no-gutters">
                             <div class="col-md-10 offset-md-2">
                                 <div class="no-account">
-                                    <a href="{{route('register')}}" data-link-action="display-register-form">
-                                        No account? Create one here
+                                    <a href="{{route('login')}}" data-link-action="display-register-form">
+                                        Have account? Login Here
                                     </a>
                                 </div>
                             </div>
@@ -114,6 +154,5 @@
         </div>
     </div>
     <br>
-
 
 @endsection

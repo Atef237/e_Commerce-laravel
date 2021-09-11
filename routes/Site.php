@@ -39,4 +39,20 @@ Route::group(
             return view('front.home');
         });
 
+    route::get('login', function () {
+        return view('front.auth.login');
+    });
+
+    route::get('register', function () {
+        return view('front.auth.register');
+    });
+
+    route::get('verification', function () {
+        return view('front.auth.verification');
+    });
+
+    route::get('verify', function () {
+        return view('front.auth.verify');
+    });
+
 });

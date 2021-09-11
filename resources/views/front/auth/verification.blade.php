@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <nav data-depth="1" class="breadcrumb-bg">
         <div class="container no-index">
             <div class="breadcrumb">
@@ -23,23 +24,23 @@
                 <div id="main">
                     <div class="page-header">
                         <h1 class="page-title hidden-xs-up">
-                            Log in to your account
+                            please Enter the code we sent to your mobile
                         </h1>
                     </div>
                     <section id="content" class="page-content">
                         <section class="login-form">
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="#">
                                 @csrf
                                 <section>
                                     <div class="form-group row no-gutters">
                                         <label class="col-md-2 form-control-label mb-xs-5 required">
-                                            Mobile :
+                                            Verification Code :
                                         </label>
                                         <div class="col-md-6">
 
-                                            <input class="form-control" name="mobile" value="{{ old('mobile') }}"
+                                            <input class="form-control" name="code" value=""
                                                    type="text" required="">
-                                            @error('mobile')
+                                            @error('code')
                                             <span  class="invalid-feedback text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -48,40 +49,7 @@
                                         <div class="col-md-4 form-control-comment right">
                                         </div>
                                     </div>
-                                    <div class="form-group row no-gutters">
-                                        <label class="col-md-2 form-control-label mb-xs-5 required">
-                                            Password :
-                                        </label>
-                                        <div class="col-md-6">
 
-                                            <div class="input-group js-parent-focus">
-                                                <input class="form-control js-child-focus js-visible-password"
-                                                       name="password" type="password" value="" pattern=".{5,}"
-                                                       required="">
-                                                <span class="input-group-btn">
-            <button class="btn" type="button" data-action="show-password" data-text-show="Show" data-text-hide="Hide">
-              Show
-            </button>
-          </span>
-                                            </div>
-                                            @error('password')
-                                            <span class="text-danger invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-4 form-control-comment right">
-                                        </div>
-                                    </div>
-                                    <div class="row no-gutters">
-                                        <div class="col-md-10 offset-md-2">
-                                            <div class="forgot-password">
-                                                <a href="password-recovery.html" rel="nofollow">
-                                                    Forgot your password?
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </section>
                                 <footer class="form-footer clearfix">
                                     <div class="row no-gutters">
@@ -89,22 +57,14 @@
                                             <input type="hidden" name="submitLogin" value="1">
                                             <button class="btn btn-primary" data-link-action="sign-in" type="submit"
                                                     class="form-control-submit">
-                                                Sign in
+                                                Confirm
                                             </button>
                                         </div>
                                     </div>
                                 </footer>
                             </form>
                         </section>
-                        <div class="row no-gutters">
-                            <div class="col-md-10 offset-md-2">
-                                <div class="no-account">
-                                    <a href="{{route('register')}}" data-link-action="display-register-form">
-                                        No account? Create one here
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+
                     </section>
                     <footer class="page-footer">
                         <!-- Footer content -->
