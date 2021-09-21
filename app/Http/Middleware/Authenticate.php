@@ -13,13 +13,15 @@ class Authenticate extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
+
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            if(Request::is(app()->getLocale().'admin/*'))
+            if(Request::is(app()->getLocale().'/admin'))
                 return route( 'admin.login' );
             else
                 return route('login');
         }
     }
+
 }

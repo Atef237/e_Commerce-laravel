@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,17 +20,38 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function() {
 
-        route::group([ 'namespace' => 'Site','middleware' => 'auth:users'],function (){   //Visit the route authority
+        route::group([ 'namespace' => 'Site\Auth','middleware' => 'auth:user' ],function (){   //Visit the route authority
 
+            route::get('verification','VerificationCodeController@verification')->name('verification.form');
 
+            route::post('verification','VerificationCodeController@PostVerification')->name('Verification.post');
+
+        });
+
+        route::group([ 'namespace' => 'Site','middleware' => ['auth:user','Verified_User'] ],function (){   //Visit the route authority and verified
+
+            route::get('profile',function (){
+                return Auth::guard('user')->user()->name ;
+            })->name('profile');
 
         });
 
            #######################################################################################
 
 
-        route::group(['namespace' => 'Site','middleware' => 'guest:user'],function (){
+        route::group(['namespace' => 'Site\Auth','middleware' => 'guest:user'],function (){
 
+
+
+            route::get('register','RegisterController@getRegister');
+
+            route::post('register','RegisterController@Register')->name('post.register');
+
+                            ###############################################
+
+            route::get('login','loginController@getLogin');
+
+            route::post('login','loginController@postlogin')->name('post.login');
 
 
         });
@@ -37,22 +59,12 @@ Route::group(
 
         route::get('/', function () {
             return view('front.home');
-        });
+        })->name('/');
 
-    route::get('login', function () {
-        return view('front.auth.login');
-    });
-
-    route::get('register', function () {
-        return view('front.auth.register');
-    });
-
-    route::get('verification', function () {
-        return view('front.auth.verification');
-    });
 
     route::get('verify', function () {
         return view('front.auth.verify');
     });
+
 
 });

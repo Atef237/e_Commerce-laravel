@@ -29,7 +29,7 @@
                     </div>
                     <section id="content" class="page-content">
                         <section class="login-form">
-                            <form method="POST" action="{{ route('register') }}">
+                            <form method="POST" action="{{ route('post.register') }}">
                                 @csrf
                                 <section>
                                     <div class="form-group row no-gutters">
@@ -51,6 +51,24 @@
                                     </div>
                                     <div class="form-group row no-gutters">
                                         <label class="col-md-2 form-control-label mb-xs-5 required">
+                                            Email :
+                                        </label>
+                                        <div class="col-md-6">
+
+                                            <input class="form-control" name="email" value="{{ old('email') }}"
+                                                   type="email" required="">
+                                            @error('email')
+                                            <span class="invalid-feedback text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-4 form-control-comment right">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row no-gutters">
+                                        <label class="col-md-2 form-control-label mb-xs-5 required">
                                             Mobile :
                                         </label>
                                         <div class="col-md-6">
@@ -66,6 +84,7 @@
                                         <div class="col-md-4 form-control-comment right">
                                         </div>
                                     </div>
+
                                     <div class="form-group row no-gutters">
                                         <label class="col-md-2 form-control-label mb-xs-5 required">
                                             Password :
@@ -85,8 +104,8 @@
                                             </div>
                                             @error('password')
                                             <span class="text-danger invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                             @enderror
                                         </div>
                                         <div class="col-md-4 form-control-comment right">

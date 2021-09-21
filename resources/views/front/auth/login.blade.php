@@ -28,18 +28,18 @@
                     </div>
                     <section id="content" class="page-content">
                         <section class="login-form">
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('post.login') }}">
                                 @csrf
                                 <section>
                                     <div class="form-group row no-gutters">
                                         <label class="col-md-2 form-control-label mb-xs-5 required">
-                                            Mobile :
+                                            Email :
                                         </label>
                                         <div class="col-md-6">
 
-                                            <input class="form-control" name="mobile" value="{{ old('mobile') }}"
-                                                   type="text" required="">
-                                            @error('mobile')
+                                            <input class="form-control" name="email" value="{{ old('email') }}"
+                                                   type="email" required="">
+                                            @error('email')
                                             <span  class="invalid-feedback text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -59,15 +59,15 @@
                                                        name="password" type="password" value="" pattern=".{5,}"
                                                        required="">
                                                 <span class="input-group-btn">
-            <button class="btn" type="button" data-action="show-password" data-text-show="Show" data-text-hide="Hide">
-              Show
-            </button>
-          </span>
+                                                <button class="btn" type="button" data-action="show-password" data-text-show="Show" data-text-hide="Hide">
+                                                  Show
+                                                </button>
+                                              </span>
                                             </div>
                                             @error('password')
                                             <span class="text-danger invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                        </span>
                                             @enderror
                                         </div>
                                         <div class="col-md-4 form-control-comment right">
@@ -86,7 +86,7 @@
                                 <footer class="form-footer clearfix">
                                     <div class="row no-gutters">
                                         <div class="col-md-10 offset-md-2">
-                                            <input type="hidden" name="submitLogin" value="1">
+{{--                                            <input type="hidden" name="submitLogin" value="1">--}}
                                             <button class="btn btn-primary" data-link-action="sign-in" type="submit"
                                                     class="form-control-submit">
                                                 Sign in

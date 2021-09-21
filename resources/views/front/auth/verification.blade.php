@@ -29,7 +29,7 @@
                     </div>
                     <section id="content" class="page-content">
                         <section class="login-form">
-                            <form method="POST" action="#">
+                            <form method="POST" action="{{route('Verification.post')}}">
                                 @csrf
                                 <section>
                                     <div class="form-group row no-gutters">
@@ -54,7 +54,7 @@
                                 <footer class="form-footer clearfix">
                                     <div class="row no-gutters">
                                         <div class="col-md-10 offset-md-2">
-                                            <input type="hidden" name="submitLogin" value="1">
+{{--                                            <input type="hidden" name="submitLogin" value="1">--}}
                                             <button class="btn btn-primary" data-link-action="sign-in" type="submit"
                                                     class="form-control-submit">
                                                 Confirm
