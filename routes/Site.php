@@ -42,7 +42,6 @@ Route::group(
         route::group(['namespace' => 'Site\Auth','middleware' => 'guest:user'],function (){
 
 
-
             route::get('register','RegisterController@getRegister');
 
             route::post('register','RegisterController@Register')->name('post.register');
@@ -56,10 +55,11 @@ Route::group(
 
         });
 
+    route::get('/','Site\HomeController@home')->name('/');
 
-        route::get('/', function () {
-            return view('front.home');
-        })->name('/');
+//        route::get('/', function () {
+//            return view('front.home');
+//        })->name('/');
 
 
     route::get('verify', function () {

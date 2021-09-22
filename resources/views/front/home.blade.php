@@ -1,3 +1,4 @@
+
 @extends('layouts.site')
 
 @section('slider')
@@ -22,8 +23,8 @@
                             <div class="nov_preload">
                                 <div class="process-loading active">
                                     <div class="loader">
-                                        @isset($sliders)
-                                            @foreach($sliders as $slider)
+                                        @isset($slides)
+                                            @foreach($slides as $slider)
                                                 <div class="dot"></div>
                                             @endforeach
                                         @endisset
@@ -34,10 +35,10 @@
                             </div>
                             <div class="nivoSlider">
 
-                                @isset($sliders)
-                                    @foreach($sliders as $slider)
+                                @isset($slides)
+                                    @foreach($slides as $slider)
                                         <a href="#">
-                                            <img src="{{$slider -> photo }}"
+                                            <img src="{{  asset('assets/images/slide/'.$slider -> photo) }}"
                                                  alt="" title="#htmlcaption_42">
                                         </a>
                                     @endforeach
@@ -53,9 +54,7 @@
         </div>
     </div>
 
-    @stop
-
-
+@stop
 @section('content')
 
     <div id="main">
@@ -70,7 +69,7 @@
                                     <div class="block_content">
                                         <div class="effect">
                                             <a href="#"> <img class="img-fluid"
-                                                              src="{{asset('assets/front/1.jpg')}}"
+                                                              src="assets/images/1.jpg"
                                                               alt="banner3-1" title="banner3-1"></a>
 
 
@@ -83,7 +82,7 @@
                                     <div class="block_content">
                                         <div class="effect">
                                             <a href="#"> <img class="img-fluid"
-                                                              src="{{asset('assets/front/2.jpg')}}"
+                                                              src="assets/images/2.jpg"
                                                               alt="banner3-1" title="banner3-1"></a>
 
 
@@ -96,7 +95,7 @@
                                     <div class="block_content">
                                         <div class="effect">
                                             <a href="#"> <img class="img-fluid"
-                                                              src="{{asset('assets/front/3.jpg')}}"
+                                                              src="assets/images/3.jpg"
                                                               alt="banner3-1" title="banner3-1"></a>
 
 
@@ -111,7 +110,7 @@
                             <div class="nov-productlist nov-countdown-productlist col-xl-4 col-lg-4 col-md-4  col-xs-12 col-md-12">
                                 <div class="block block-product clearfix">
                                     <h2 class="title_block">
-                                        FLASH DEALS --
+                                        FLASH DEALS
                                     </h2>
                                     <div class="block_content">
                                         <div id="productlist1326409273"

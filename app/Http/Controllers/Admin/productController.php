@@ -119,7 +119,7 @@ class productController extends Controller
     }
 
     public function saveForm(ProductImageRequest $request){
-        //return $request;
+         // return $request;
 
         if($request->has('documents') && count($request->documents)> 0){
 

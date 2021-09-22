@@ -14,9 +14,9 @@
                             <div id="verticalmenu" class="verticalmenu" role="navigation">
                                 <ul class="menu level1">
 
-                                    @isset($categories)
-                                        @foreach($categories as $category)
-                                            <li class="item  parent"><a href="#" title="Laptops &amp; Accessories"><i
+
+                                        @forelse($categories as $category)
+                                            <li class="item  parent"><a href="#" title=""><i
                                                         class="hasicon nov-icon"
                                                         style="background:url('http://demo.bestprestashoptheme.com/savemart/themes/vinova_savemart/assets/img/modules/novverticalmenu/icon/laptop.png') no-repeat scroll center center;">
 
@@ -54,8 +54,12 @@
                                                     </div>
                                                 @endisset
                                             </li>
-                                        @endforeach
-                                    @endisset
+
+                                        @empty
+                                            <li> not available category </li>
+
+                                        @endforelse
+
 
 
                                 </ul>

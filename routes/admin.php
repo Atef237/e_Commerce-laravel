@@ -162,6 +162,24 @@ Route::group(
         /////////////////////////////////////////end options ///////////////////////////////////////////
 
 
+        /////////////////////////////////////////begin slid /////////////////////////////////////////
+
+        route::group(['prefix'=>'slid'],function (){
+
+            route::get('/','MainSlidController@index')->name('slides');
+            route::get('create','MainSlidController@create')->name('create.slide');
+            route::post('store','MainSlidController@store')->name('store.slide');
+            route::post('storeImage','MainSlidController@storeImage')->name('store.slide.image');
+            route::get('edit/{id}','MainSlidController@edit')->name('edit.slide');
+            route::post('update/{id}','MainSlidController@update')->name('update.slide');
+            route::get('destroy/{id}','MainSlidController@destroy')->name('destroy.slide');
+
+
+        });
+
+        /////////////////////////////////////////end slid ///////////////////////////////////////////
+
+
 
     });
 

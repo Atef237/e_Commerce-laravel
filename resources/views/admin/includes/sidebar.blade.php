@@ -154,6 +154,21 @@
                             </ul>
                      </li>
                      </ul>
+
+
+                      <ul class="menu-content">
+                          <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">sliders</a>
+                              <ul class="menu-content">
+                                  <li><a class="menu-item" href="{{route('create.slide')}}" >add slide</a>
+                                  </li>
+                                  <li><a class="menu-item" href="#">show all slide</a>
+                                  </li>
+                              </ul>
+                          </li>
+                      </ul>
+
+
+
               </li>
               <li class=" navigation-header">
                      <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus"
