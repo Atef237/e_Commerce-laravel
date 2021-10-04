@@ -18,7 +18,7 @@ class HomeController extends Controller
             $quire->with(['childrens'=>function($quiree){
                 $quiree->select('id','parent_id','slug');
             }]);
-        }])->where('is_active',1)->get();
+        }])->get();
 
         // return $data;
 

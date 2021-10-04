@@ -55,6 +55,13 @@ Route::group(
 
         });
 
+
+    route::group(['namespace' => 'Site','middleware' => 'guest:user'],function (){
+        route::get('category/{slug}','CategoryController@productsBySlug')->name('category');
+
+
+    });
+
     route::get('/','Site\HomeController@home')->name('/');
 
 //        route::get('/', function () {

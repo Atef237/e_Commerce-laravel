@@ -12,7 +12,7 @@ class Product extends Model
     use Translatable,
         SoftDeletes;
 
-    protected $with = ['translations'];
+    protected $with = ['translations','photos'];
 
     protected $fillable =[
         'brand_id',

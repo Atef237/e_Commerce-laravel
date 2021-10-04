@@ -15,14 +15,14 @@
                                 <ul class="menu level1">
 
 
-                                        @forelse($categories as $category)
-                                            <li class="item  parent"><a href="#" title=""><i
+                                        @foreach($categories as $category)
+                                            <li class="item  parent"><a href="{{route('category',$category->slug)}}" title=""><i
                                                         class="hasicon nov-icon"
                                                         style="background:url('http://demo.bestprestashoptheme.com/savemart/themes/vinova_savemart/assets/img/modules/novverticalmenu/icon/laptop.png') no-repeat scroll center center;">
 
                                                     </i>{{$category -> name}}</a>
 
-                                                @isset($category -> childrens)
+                                                @isset($category)
 
                                                     <span
                                                         class="show-sub fa-active-sub"></span>
@@ -31,7 +31,7 @@
                                                             @foreach($category -> childrens as $childern)
                                                                 <li class="item ">
                                                                 <li class="item  parent">
-                                                                    <a href="#"
+                                                                    <a href="{{route('category',$category->slug)}}"
                                                                        title="Laptop Thinkpad">{{$childern -> name}}</a>
                                                                     @isset($childern -> childrens )
                                                                         <span class="show-sub fa-active-sub"></span>
@@ -39,7 +39,7 @@
                                                                             <ul>
                                                                                 @foreach($childern -> childrens  as $_childern)
                                                                                     <li class="item ">
-                                                                                        <a href="#"
+                                                                                        <a href="{{route('category',$category->slug)}}"
                                                                                            title="Aliquam lobortis">
                                                                                             {{$_childern -> name}}
                                                                                         </a>
@@ -55,11 +55,7 @@
                                                 @endisset
                                             </li>
 
-                                        @empty
-                                            <li> not available category </li>
-
-                                        @endforelse
-
+                                        @endforeach
 
 
                                 </ul>
